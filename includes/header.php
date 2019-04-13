@@ -1,3 +1,10 @@
+<?php 
+
+    // require('initialize.php');
+    require('includes/config.php');
+    require('functions.php');
+
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -6,10 +13,11 @@
         <title><?php echo SITE_TITLE; ?></title>
         
         <!--        LIGHTBOX CSS         -->
-        <link href="css/lightbox.css" rel="stylesheet">
+        <link href="<?php echo root_url('css/lightbox.css'); ?>" rel="stylesheet">
         
         <!-- main stylesheet link -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="<?php echo root_url('css/style.css'); ?>" />
+        <link rel="stylesheet" href="<?php echo root_url('css/bootstrap.css'); ?>" />
         
         <!--        FAVICON             -->
         <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
@@ -31,12 +39,14 @@
         <meta name="theme-color" content="#ffffff">
         
         <!--    JQUERY LIBRARY    -->
-       <script src="js/jquery-1.11.1.min.js"></script>
+       <!-- <script src="<php echo root_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
        
        <!--	JQUERY EASING	-->
-       <script src="js/jquery.easing.1.3.js"></script>
+       <script src="<?php echo root_url('js/jquery.easing.1.3.js'); ?>"></script>
        
-       <script src="js/custom-script.js"></script>
+       <script src="<?php echo root_url('js/custom-script.js'); ?>"></script>
+
+       <script src='https://www.google.com/recaptcha/api.js'></script>
        
        <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -54,15 +64,22 @@
 	    <script src="js/html5shiv.min.js"></script>
         <![endif]-->
     </head>
-<body> 
+<body>
+<?php 
+
+// echo SITE_ROOT;
+// echo $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']; 
+// echo $_SERVER['SCRIPT_NAME'];
+?>
+<!-- <php echo root_url('index.php'); ?> -->
    <div id="test"></div>
         <header id="site-header">
             <h1 id="site-title">
                <a href="https://ca.linkedin.com/in/michaelbatruch" target="_blank">
-                   <img src="images/linkedin.png" alt="linked-in" id="linked-logo">
+                   <img src="<?php echo root_url('images/linkedin.png'); ?>" alt="linked-in" id="linked-logo">
                </a>
                <a href="https://github.com/mdbatruch" target="_blank">
-                   <img src="images/github.png" alt="github" id="github-logo">
+                   <img src="<?php echo root_url('images/github.png'); ?>" alt="github" id="github-logo">
                </a>
             </h1>
                 <nav id="site-nav">
@@ -70,13 +87,11 @@
                     <a id="hide-menu" href="#"><span>Hide Menu</span></a>
                     <ul id="menu">
                         <li>
-                            <a href="index.php">Home</a>
+                            <a href="<?php echo root_url('index.php'); ?>">Home</a>
                         </li>
                         <li>
-                            <a href="https://mdbdev.wordpress.com/">Blog</a>
-                        </li>
-                        <li>
-                            <a href="contact.php">Contact</a>
+                            <a href="<?php echo root_url('contact.php'); ?>">Contact</a>
+                            <!-- <a href="<php root_url('con.php'); ?>">Contact</a> -->
                         </li>
                     </ul>
                </nav>

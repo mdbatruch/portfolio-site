@@ -81,8 +81,8 @@ img {
 
 #site-title a {
     text-decoration: none;
-    line-height: 70px;
-    margin-left: 0px;
+    /* line-height: 70px; */
+    /* margin-left: 0px; */
     color: #fff;
 }
 
@@ -186,10 +186,9 @@ main {
     padding: 40px;
 }
 
-.sample-projects {
-                   
+/* .sample-projects {              
     display: none;
-}
+} */
                
 #project-list {
     
@@ -267,6 +266,7 @@ main {
     
     padding: 20px;
     font-weight: 600;
+    height: 95px;
 }
 
 #contact-text {
