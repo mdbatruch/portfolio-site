@@ -6,13 +6,13 @@
             </p>
     </div>        
 </footer>   
-       <a href="#test">
+       <a href="#top">
 	       <img id="goUp" src="<?php echo root_url('images/up-grey.png'); ?>" alt="back-to-top">
        </a>
     <script src="<?php echo root_url('js/lightbox.js'); ?>"></script>
   
    <!--         LIGHTBOX JS          -->
-<!--       <script src="js/lightbox-plus-jquery.min.js"></script>-->
+      <script src="js/lightbox-plus-jquery.min.js"></script>
    
    <script src="<?php echo root_url('js/jquery-custom.js'); ?>"></script>
    <script src="<?php echo root_url('js/bootstrap.js'); ?>"></script>

@@ -3,6 +3,11 @@
     // require('initialize.php');
     require('includes/config.php');
     require('functions.php');
+    require('db/connect.php');
+    require('db/query_functions.php');
+
+    $db = db_connect();
+    $errors = [];
 
 ?>
 <!doctype html>
@@ -65,14 +70,9 @@
         <![endif]-->
     </head>
 <body>
-<?php 
-
-// echo SITE_ROOT;
-// echo $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']; 
-// echo $_SERVER['SCRIPT_NAME'];
-?>
 <!-- <php echo root_url('index.php'); ?> -->
-   <div id="test"></div>
+<?php $projects = find_all_projects(); ?>
+   <div id="top"></div>
         <header id="site-header">
             <h1 id="site-title">
                <a href="https://ca.linkedin.com/in/michaelbatruch" target="_blank">
@@ -87,10 +87,10 @@
                     <a id="hide-menu" href="#"><span>Hide Menu</span></a>
                     <ul id="menu">
                         <li>
-                            <a href="<?php echo root_url('index.php'); ?>">Home</a>
+                            <a href="<?php echo root_url('index'); ?>">Home</a>
                         </li>
                         <li>
-                            <a href="<?php echo root_url('contact.php'); ?>">Contact</a>
+                            <a href="<?php echo root_url('contact'); ?>">Contact</a>
                             <!-- <a href="<php root_url('con.php'); ?>">Contact</a> -->
                         </li>
                     </ul>

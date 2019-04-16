@@ -70,7 +70,7 @@ $reCAPTCHA = new reCAPTCHA('PUBLIC_KEY', 'SECRET_KEY');
         // $mail->Port = 587;
         $mail->Port = 465;
         $mail->From = "FROM_ADDRESS";
-        $mail->FromName = "FROM_NAME";
+        $mail->FromName = "ContactForm";
         $mail->AddAddress('ADDRESS_TO_SEND_TO');
         $mail->AddReplyTo($_POST['email']);
         $mail->isHTML(true);
@@ -79,7 +79,7 @@ $reCAPTCHA = new reCAPTCHA('PUBLIC_KEY', 'SECRET_KEY');
 
         if (!$mail->Send()) {
             $data['success'] = false;
-            $data['message'] = 'There was a problem sending your form. please contact ADDRESS_TO_SEND_TO directly for further correspondence.';
+            $data['message'] = 'There was a problem sending your form. please contact mdbatruch@gmail.com directly for further correspondence.';
         } else {
             $data['success'] = true;
             $data['message'] = "Success! Your Message has been sent. I will be in touch shortly.";

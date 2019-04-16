@@ -1,0 +1,31 @@
+/*
+
+                ANIMATIONS
+
+*/
+
+@keyframes fade-in{
+    
+    0%{
+        opacity: 0;
+    }
+    
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    
+    from {
+        -webkit-transform: translate(0,0) rotate(0deg);
+        transform: translate(0,0) rotate(0deg);
+    }
+}
+
+@keyframes slide-in {
+    
+    from {
+        transform: translate(500px,0);
+    }
+}

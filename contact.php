@@ -2,9 +2,8 @@
     
     // include('includes/config.php');
         
-    include('includes/header.php'); 
-
-        ?>
+    include('includes/header.php');
+?>
          <main>
             <div id="content-heading">
                 <h2>Contact</h2>    

@@ -1,0 +1,10 @@
+CREATE TABLE projects (
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL,
+	description VARCHAR(255),
+	link VARCHAR(255),
+	image_url VARCHAR(255),
+	alt VARCHAR(255),
+	active TINYINT(1),
+	PRIMARY KEY (id)
+) DEFAULT CHARSET=utf8;

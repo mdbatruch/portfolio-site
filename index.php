@@ -4,11 +4,19 @@
 
 ?>  
          <main>
-                <div id="content-heading">
-                    <h2>Home</h2>    
-                </div>
-                
+            <div id="content-heading">
+               <h2>Home</h2>    
+            </div>    
                  <div id="project-list">
+                 <?php while($projects_array = mysqli_fetch_assoc($projects)) { ?>
+                     <div class="sample-projects">
+                         <h3><?php echo $projects_array['name']; ?></h3>
+                          <a href="http://wordpress-custom.mike-batruch.ca/" target="_blank">
+                           <img src="<?php echo root_url('images/wordpress-custom.jpg'); ?>" alt="Smiling-Buddha">
+                           <h4></h4>
+                          </a>
+                       </div>
+                 <?php } ?>
                      <div class="sample-projects">
                          <h3>Hard Luck Bar</h3>
                           <a href="http://wordpress-custom.mike-batruch.ca/" target="_blank">
