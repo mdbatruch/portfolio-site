@@ -1,2 +1,3 @@
+resources/node_modules/*
 process-push.php
 contact-push.php
