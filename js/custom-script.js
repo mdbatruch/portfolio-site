@@ -1,20 +1,20 @@
 
 // EASE FUNCTIONALITY
 	
-            $(function() {
-          $('a[href*=#]:not([href=#]):not([href=#site-nav])').click(function() {
-            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-              var target = $(this.hash);
-              target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-              if (target.length) {
-                $('html,body').animate({
-                  scrollTop: '0px'
-                }, 500, 'easeOutExpo');
-                return false;
-              }
-            }
-          });
-        });
+        // $(function() {
+        //   $('a[href*=#]:not([href=#]):not([href=#site-nav])').click(function() {
+        //     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        //       var target = $(this.hash);
+        //       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        //       if (target.length) {
+        //         $('html,body').animate({
+        //           scrollTop: '0px'
+        //         }, 500, 'easeOutExpo');
+        //         return false;
+        //       }
+        //     }
+        //   });
+        // });
 
 
 
@@ -61,7 +61,7 @@
         $("#goUp").css( 'bottom', -200 );
 		
 		$(window).on("scroll", function(){
-			console.log( $(window).scrollTop() );
+			// console.log( $(window).scrollTop() );
 			
 			if( $(window).scrollTop() > 10 ){
 				if( $("#goUp").css( 'bottom' ) >= 50 ){

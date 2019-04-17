@@ -46,10 +46,10 @@
         <!--    JQUERY LIBRARY    -->
        <!-- <script src="<php echo root_url('js/jquery-1.11.1.min.js'); ?>"></script> -->
        
-       <!--	JQUERY EASING	-->
-       <script src="<?php echo root_url('js/jquery.easing.1.3.js'); ?>"></script>
+       	<!-- JQUERY EASING	
+       <script src="<php echo root_url('js/jquery.easing.1.3.js'); ?>"></script>
        
-       <script src="<?php echo root_url('js/custom-script.js'); ?>"></script>
+       <script src="<php echo root_url('js/custom-script.js'); ?>"></script> -->
 
        <script src='https://www.google.com/recaptcha/api.js'></script>
        
@@ -70,7 +70,6 @@
         <![endif]-->
     </head>
 <body>
-<!-- <php echo root_url('index.php'); ?> -->
 <?php $projects = find_all_projects(); ?>
    <div id="top"></div>
         <header id="site-header">

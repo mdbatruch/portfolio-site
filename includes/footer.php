@@ -9,17 +9,28 @@
        <a href="#top">
 	       <img id="goUp" src="<?php echo root_url('images/up-grey.png'); ?>" alt="back-to-top">
        </a>
-    <script src="<?php echo root_url('js/lightbox.js'); ?>"></script>
   
    <!--         LIGHTBOX JS          -->
-      <script src="js/lightbox-plus-jquery.min.js"></script>
-   
-   <script src="<?php echo root_url('js/jquery-custom.js'); ?>"></script>
+   <script src="js/lightbox-plus-jquery.min.js"></script>
+
    <script src="<?php echo root_url('js/bootstrap.js'); ?>"></script>
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+   <!--	JQUERY EASING	-->
+   <script src="<?php echo root_url('js/jquery.easing.1.3.js'); ?>"></script>
+       
+    <script src="<?php echo root_url('js/custom-script.js'); ?>"></script>
+
+    <!-- <script src="<php echo root_url('js/lightbox.js'); ?>"></script> -->
+
    <script type="text/javascript">
+
+    $(document).ready(function(){
+    $('#close-button').click(function(){
+        $("#success, #success-overlay").fadeOut(600); 
+    });
+    });
    
     // $(document).ready(function(){
 

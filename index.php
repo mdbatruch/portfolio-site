@@ -1,72 +1,26 @@
 <?php 
 
-    include('includes/header.php'); 
+    include('includes/header.php');
 
-?>  
-         <main>
-            <div id="content-heading">
-               <h2>Home</h2>    
-            </div>    
-                 <div id="project-list">
-                 <?php while($projects_array = mysqli_fetch_assoc($projects)) { ?>
-                     <div class="sample-projects">
-                         <h3><?php echo $projects_array['name']; ?></h3>
-                          <a href="http://wordpress-custom.mike-batruch.ca/" target="_blank">
-                           <img src="<?php echo root_url('images/wordpress-custom.jpg'); ?>" alt="Smiling-Buddha">
-                           <h4></h4>
-                          </a>
-                       </div>
-                 <?php } ?>
-                     <div class="sample-projects">
-                         <h3>Hard Luck Bar</h3>
-                          <a href="http://wordpress-custom.mike-batruch.ca/" target="_blank">
-                           <img src="<?php echo root_url('images/wordpress-custom.jpg'); ?>" alt="Smiling-Buddha">
-                           <h4>WordPress Theme Customization</h4>
-                          </a>
-                       </div>
-                      <div class="sample-projects">
-                         <h3>Vacation Catalogue</h3>
-                          <a href="http://vacationcatalog.williamdev.co/" target="_blank">
-                           <img src="<?php echo root_url('images/vacation-final2.jpg'); ?>" alt="Vacation-Catalogue">
-                           <h4>Application Design and Development</h4>
-                          </a>
-                       </div>
-                       <div class="sample-projects">
-                         <h3>Terminal Barber Shop</h3>
-                          <a href="http://composite-1.mike-batruch.ca/" target="_blank">
-                           <img src="<?php echo root_url('images/terminal-barber-shop.jpg'); ?>" alt="Terminal-Barber-Shop">
-                           <h4>Web Design and Development</h4>
-                          </a>
-                       </div>
-                       <div class="sample-projects">
-                         <h3>Life in Vacuum</h3>
-                          <a href="http://www.lifeinvacuum.com/" target="_blank">
-                           <img src="<?php echo root_url('images/life-in-vacuum-final.jpg'); ?>" alt="Life-In-Vacuum">
-                           <h4>Web Design and Development</h4>
-                          </a>
-                       </div>
-                       <div class="sample-projects">
-                         <h3>Dropkick Murphys</h3>
-                          <a href="images/dropkick.gif" data-lightbox="image-1" >
-                           <img src="<?php echo root_url('images/dropkick-3.jpg'); ?>" alt="dropkick-murphys">
-                           <h4>Graphic Design and Illustration</h4>
-                          </a>
-                       </div> 
-                       <div class="sample-projects">
-                          <h3>Drive Studios</h3>
-                           <a href="http://drivestudios.com/" target="_blank">
-                            <img src="<?php echo root_url('images/drive-studios.jpg'); ?>" alt="Drive-Studios">
-                            <h4>Web Design and Development</h4>
-                           </a>
-                       </div>
-                       <div class="sample-projects">
-                          <h3>School Damage</h3>
-                           <a href="http://schooldamage.com/" target="_blank">
-                            <img src="<?php echo root_url('images/school-damage.jpg'); ?>" alt="School-Damage">
-                            <h4>Web Design and Development</h4>
-                           </a>
-                     </div>
-                </div>        
-        </main>  
+?>
+      <main>
+         <div id="content-heading">
+            <h2>Home</h2>    
+         </div>
+         <div id="project-list">
+         <?php while($project_list = mysqli_fetch_assoc($projects)) { ?>
+            <?php if ($project_list['active']) { ?>
+               <div class="sample-projects">
+                     <h3><?php echo $project_list['name']; ?></h3>
+                     <?php $gifcheck = substr($project_list['link'], -3); ?>
+                     <a href="<?php echo $project_list['link']; ?>" <?php $result = ($gifcheck == 'gif') ? 'data-lightbox="roadtrip"' : 'target="_blank"'; echo $result; ?>>
+                     <img src="<?php echo root_url($project_list['image_url']); ?>" alt="<?php echo $project_list['alt']; ?>">
+                     <h4><?php echo $project_list['description']; ?></h4>
+                     </a>
+                  </div>
+            <?php } ?>
+         <?php } ?>
+         </div>        
+      </main>  
 
 <?php include('includes/footer.php'); ?>   

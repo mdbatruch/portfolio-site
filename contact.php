@@ -15,13 +15,13 @@
                         Hey, I'm Mike!
                     </h1>
                      <div id="contact-desc">
-                         <p id="main-contact-bio">I'm a Web Designer and Developer from Toronto with a background in the Music Industry.</p>
-                         <p class="contact-bio">I've always helped out people with their websites and through this I've noticed that it's vital these days for any business or organization to have a website.</p>
-                         <p class="contact-bio">From communicating and engaging with your clients or fans, selling products     online or to just simply inform visitors, you want to step forward with your     best footprint in the digital world.</p>
-                         <p class="contact-bio">That’s where I can help.</p>
-                         <p class="contact-bio">Experienced with the best tools and practices in Web Design and Development I can make your dream    website a reality at a reasonable and affordable cost.</p>
-                         <p class="contact-bio">Want to find out how?</p>
-                         <p class="contact-bio">Just let me know!</p>
+                         <div id="main-contact-bio">I'm a Web Designer and Developer from Toronto with a background in the Music Industry.</div>
+                         <p>I've always helped out people with their websites and through this I've noticed that it's vital these days for any business or organization to have a website.</p>
+                         <p>From communicating and engaging with your clients or fans, selling products     online or to just simply inform visitors, you want to step forward with your     best footprint in the digital world.</p>
+                         <p>That’s where I can help.</p>
+                         <p>Experienced with the best tools and practices in Web Design and Development I can make your dream    website a reality at a reasonable and affordable cost.</p>
+                         <p>Want to find out how?</p>
+                         <p>Just let me know!</p>
                      </div>
                  </div>
                 <div id="contact-main">

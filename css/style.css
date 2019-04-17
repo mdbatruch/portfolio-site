@@ -308,9 +308,12 @@ main {
   padding: 40px;
 }
 
-/* .sample-projects {              
-    display: none;
-} */
+.sample-projects,
+#contact-text h1,
+#contact-main,
+#contact-desc {
+  display: none;
+}
 
 #project-list {
   height: 250px;
@@ -340,12 +343,6 @@ main {
 
 .sample-projects {
   text-align: center;
-  /*
-    height: 270px;
-    width: 300px;
-*/
-  /*    width: 100%;*/
-  /*    margin 10px 0px;*/
   background-color: #6a7474;
   float: left;
   outline: 5px solid black;
@@ -385,16 +382,23 @@ main {
 }
 
 #contact-desc {
-  /*    width: 50%;*/
-  font-size: 1.1rem;
   font-weight: 400;
-  line-height: 1.4rem;
+  line-height: 1.5rem;
   margin-top: 30px;
 }
 
+#contact-desc #main-contact-bio {
+  padding-bottom: 20px !important;
+  font-size: 2rem;
+  line-height: 1;
+}
+
 #contact-desc p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding-bottom: 10px;
+  font-weight: 100;
+  padding: 0px 20px;
+  width: 70%;
 }
 
 #contact-main {
@@ -402,7 +406,7 @@ main {
   background-color: aliceblue;
   outline: 15px solid black;
   float: left;
-  padding: 40px;
+  padding: 0px 20px;
   margin: 5%;
   width: 80%;
 }
@@ -411,17 +415,6 @@ main {
   margin-top: 30px;
   padding: 10px;
   background-color: #c4c4c4;
-}
-
-#main-contact-bio {
-  padding-bottom: 20px !important;
-}
-
-.contact-bio {
-  font-weight: 100;
-  font-size: 1.1rem !important;
-  padding: 0px 20px;
-  width: 70%;
 }
 
 .grecaptcha-badge {
@@ -495,7 +488,6 @@ form li {
 }
 
 form li label {
-  margin-bottom: 20px;
   font-size: 150%;
   font-weight: 700;
 }
@@ -511,7 +503,6 @@ form input[type="text"] {
   border-radius: 2px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  margin-top: 20px;
   width: 60%;
 }
 
@@ -527,7 +518,6 @@ form textarea {
   outline: 2px solid #acacac !important;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  margin-top: 20px;
   padding: 10px;
   font-size: 150%;
 }
