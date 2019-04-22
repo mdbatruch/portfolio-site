@@ -3,8 +3,8 @@
     // require('initialize.php');
     require('includes/config.php');
     require('functions.php');
-    require('db/connect.php');
-    require('db/query_functions.php');
+    require('site-db/connect.php');
+    require('site-db/query_functions.php');
 
     $db = db_connect();
     $errors = [];
@@ -86,10 +86,10 @@
                     <a id="hide-menu" href="#"><span>Hide Menu</span></a>
                     <ul id="menu">
                         <li>
-                            <a href="<?php echo root_url('index'); ?>">Home</a>
+                            <a href="<?php echo root_url('index.php'); ?>">Home</a>
                         </li>
                         <li>
-                            <a href="<?php echo root_url('contact'); ?>">Contact</a>
+                            <a href="<?php echo root_url('contact.php'); ?>">Contact</a>
                             <!-- <a href="<php root_url('con.php'); ?>">Contact</a> -->
                         </li>
                     </ul>
