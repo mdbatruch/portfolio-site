@@ -2,4 +2,4 @@ resources/node_modules/*
 images/*
 process-push.php
 contact-push.php
-db/db_credentials.php
+db/credentials.php

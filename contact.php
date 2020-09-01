@@ -1,27 +1,34 @@
 <?php 
     
     // include('includes/config.php');
+
         
     include('includes/header.php');
+
+    $page_title = 'Contact';
+
+    $page_title_lowercase = strtolower($page_title);
+
+    $page_name = find_page_by_name($page_title_lowercase);
+
+    // echo '<pre>';
+    // print_r($page_name);
 ?>
          <main>
             <div id="content-heading">
-                <h2>Contact</h2>    
+                <h2><?php echo $page_title; ?></h2>    
             </div> 
             <div id="project-list" >
                 <div id="contact-wrapper">
                  <div id="contact-text">
                     <h1 id="call-to-action">
-                        Hey, I'm Mike!
+                        <?php echo $page_name['title']; ?>
                     </h1>
                      <div id="contact-desc">
-                         <div id="main-contact-bio">I'm a Web Designer and Developer from Toronto with a background in the Music Industry.</div>
-                         <p>I've always helped out people with their websites and through this I've noticed that it's vital these days for any business or organization to have a website.</p>
-                         <p>From communicating and engaging with your clients or fans, selling products     online or to just simply inform visitors, you want to step forward with your     best footprint in the digital world.</p>
-                         <p>That’s where I can help.</p>
-                         <p>Experienced with the best tools and practices in Web Design and Development I can make your dream    website a reality at a reasonable and affordable cost.</p>
-                         <p>Want to find out how?</p>
-                         <p>Just let me know!</p>
+                         <h2><?php echo $page_name['subtitle']; ?></h2>
+                         <div id="main-contact-bio">
+                             <?php echo nl2br($page_name['description']); ?>
+                         </div>
                      </div>
                  </div>
                 <div id="contact-main">

@@ -1,7 +1,6 @@
 <?php 
 
     include('includes/header.php');
-
 ?>
       <main>
          <div id="content-heading">

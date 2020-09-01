@@ -11,4 +11,18 @@
 
     //site title for whole site
     define( 'SITE_TITLE', 'The Online Portfolio of Mike Batruch');
-    define("SITE_ROOT", $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']));
+
+     if ($_SERVER['SERVER_NAME'] == 'localhost') {
+        $devmode = 1;
+     }
+
+     //mike-batruch.ca is live
+
+    if ($devmode) {
+        define("SITE_ROOT", $_SERVER['HTTP_HOST'] . '/portfolio-site');
+        define("SITE_ROOT_PRIVATE", $_SERVER['HTTP_HOST'] . '/portfolio-site/private');
+        // define("SITE_ROOT_PRIVATE", $_SERVER['HTTP_HOST'] . dirname(dirname($_SERVER['PHP_SELF'])));
+    } else {
+        define("SITE_ROOT", $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']));
+        define("SITE_ROOT_PRIVATE", $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/private');
+    }

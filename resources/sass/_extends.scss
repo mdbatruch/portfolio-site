@@ -1,0 +1,49 @@
+%dashboard-item {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 50px;
+    background-size: contain;
+}
+
+%dashboard-inner {
+    background-color: $adminDashboardGrey;
+    color: $svgGreen;
+    padding: 40px 30px;
+    text-align: center;
+    font-family: $open-sans;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    margin: 0px 20px;
+}
+
+%dashboard-inner-img {
+    display: block;
+    width: 100%;
+    height: 75px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+%dashboard-main-link {
+    content: "";
+    left: 30px;
+    top: -15px;
+    position: absolute;
+    width: 75px;
+    height: 100px;
+    background-size: contain;
+}
+
+%dashboard-item-link {
+    position: relative;
+    padding-left: 50px;
+    color: $adminGrey;
+}
+
+%toggle {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: 1s all ease;
+}

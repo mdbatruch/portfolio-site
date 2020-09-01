@@ -1,0 +1,366 @@
+/*
+
+
+
+                    RESPONSIVE STYLING
+
+
+
+*/
+
+
+@media screen and (min-width:1501px) {
+    
+    .sample-projects {
+    
+    width: 23%;
+    margin: 1%;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1500px) {
+
+    .sample-projects {
+    
+    width: 31.33%;
+    margin: 1%;
+}
+
+}
+
+@media screen and (max-width: 1375px) {
+
+#contact-wrapper {
+    
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 1055px) {
+
+.sample-projects h4 {
+    
+    font-size: 0.8rem;
+}
+}
+
+@media screen and (max-width: 875px) {
+
+.sample-projects h4 {
+    
+    font-size: 0.6rem;
+}
+
+.sample-projects h3 {
+ 
+    font-size: 120%;
+}
+}
+
+@media screen and (max-width: 768px) {
+
+/* #menu is the original menu */
+ #menu {
+     
+    display:none;
+}
+
+#show-menu {
+    
+    display: block;
+}
+
+ /* Nav position after hitting this size*/
+#site-nav {
+    
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #293744;
+}
+
+/* Where you want the Nav to finally position after clicking the Hamburger Menu*/
+
+#site-nav:target {
+    left:0;
+    bottom: 0;
+}
+
+#site-nav::before {
+    content: none;
+}
+
+#show-menu, #hide-menu {
+    
+    position: absolute;
+    width: 40px;
+    height: 32px;
+    top: 20px;
+    right: 15px;
+
+    /* include borders in the width and height */
+
+    box-sizing: border-box;
+}
+
+
+/* first and third menu lines */
+#show-menu {
+    
+    border-top: 5px solid #ffffff;
+    border-bottom: 5px solid #ffffff;
+}
+
+  /* second menu line */
+#show-menu::before {
+
+    content: '';
+    display: block;
+    width: 100%;
+    border-top: solid 5px #fff;
+    position: relative;
+    top: 9px;
+}
+
+
+/* Set hide menu to default display none */
+#site-nav #hide-menu {
+    
+    display: none;
+}
+
+#site-nav a {
+    
+    padding: 0;
+    border-left: none;
+    -webkit-transition: none;
+    transition: none;
+}
+
+/* Hide text in button */
+#site-nav > a span {
+    display: none;   
+}
+
+/* first and second menu lines for hide menu */
+#hide-menu::before,
+#hide-menu::after{
+    content: '';
+    width: 100%;
+    display: block;
+    border-top: solid 5px #fff;
+    
+    -webkit-transform-origin: 0 2px;
+    transform-origin: 0 2px;
+    -webkit-transform: translate(8px,0) rotate(45deg);
+    transform: translate(8px,0) rotate(45deg);
+    animation-name: spin;
+    animation-duration: 0.4s;
+}
+
+/* second menu line for hide menu */
+#hide-menu::after {
+    position: relative;
+    top: 24px;
+    -webkit-transform-origin: 0 2;
+    transform-origin: 0 2;
+    -webkit-transform: translate(8px,0) rotate(-45deg);
+    transform: translate(8px,0) rotate(-45deg);
+}
+
+#site-nav ul {
+
+    word-spacing: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+
+}
+
+#site-nav li {
+    display: block;
+    text-align: center;
+    float: none;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #000;
+}
+
+
+#site-nav li:last-child {
+    display: block;
+    text-align: center;
+    border-bottom: none;
+}
+
+ /* SLIDING IN ANIMATION */
+
+#site-nav:target {
+    
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+}
+
+#site-nav:target ul {
+    display: block;
+    animation-name: fade-in;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+#site-nav:target li {
+    animation: slide-in 0.25s ease-in 1 backwards;    
+}
+
+#site-nav:target li:nth-child(2) {
+    animation-delay: 0.25s;    
+}
+
+#site-nav:target li:nth-child(3) {
+    animation-delay: 0.5s;    
+}
+
+/* Removes Show Menu from browser */
+#site-nav:target #show-menu {
+    display: none;
+}
+
+/* Replaces Show menu with Hide Menu*/
+ #site-nav:target #hide-menu {
+    display: block;
+}
+
+
+textarea {
+    
+    width: 95%;
+}
+
+#contact-main {
+    
+    padding: 0px;
+}
+
+#project-list {
+ 
+    width: 100%;
+}
+
+input[type="text"]{
+    
+    width: 90%;
+}
+
+#contact-desc {
+
+    width: 100%;
+}
+
+.contact-bio {
+    
+    width: 100%;
+    padding: 0;
+}
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+        
+    footer {
+        
+        // height: 50px;
+    }
+    
+    .sample-projects {
+
+        width: 45%;
+        margin: 2.5%;
+    }
+    
+    .sample-projects h4 {
+        
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (min-width: 475px) and (max-width: 550px) {
+ 
+    h3 {
+            
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    
+    #call-to-action {
+        
+        font-size: 2.4rem;
+    }
+    
+    #contact-desc {
+        
+        font-size: 1rem;
+    }
+    
+    #contact-main {
+        
+        width: 90%;
+        margin-bottom: 40px;
+    }
+    
+    #close-button {
+    
+    width: 24px;
+    }
+    
+    .sample-projects h4 {
+        
+        font-size: 1rem;
+    }
+
+    
+    #success h2 {
+        
+        font-size: 1.5rem;
+        margin-left: -30%;
+    }
+    
+    #success p {
+        
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    #call-to-action {
+        
+        font-size: 2.8rem;    
+    }
+    
+    #contact-desc p {
+        
+        font-size: 1.3rem;    
+    }
+    
+    footer {
+        
+        font-size: 12px;
+        // height: 50px;
+        
+    }
+    
+    #footer-wrapper {
+        
+        width: 100%;
+    }
+    
+    .sample-projects {
+ 
+        width: 90%;
+        margin: 5%;
+    }
+}

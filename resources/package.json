@@ -22,9 +22,12 @@
   },
   "homepage": "https://github.com/mdbatruch/portfolio-site#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
     "gulp-concat-css": "^3.1.0",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.1.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.14.1"
   }
 }

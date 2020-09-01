@@ -1,9 +1,17 @@
 <?php
 
+if($_SERVER['REQUEST_METHOD'] != 'POST'){
+  header('Location: index.php');
+  exit();
+}
+
+$smtp = parse_ini_file($_SERVER['DOCUMENT_ROOT'] . '/smtp.ini');
+
 require 'recaptcha.php';
 
 use Phelium\Component\reCAPTCHA;
-use PHPMailer;
+require 'mail/PHPMailerAutoload.php';
+// use PHPMailer;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -11,7 +19,7 @@ ini_set('display_errors', 1);
 $data = array();
 $errors = array();
 
-$reCAPTCHA = new reCAPTCHA('PUBLIC_KEY', 'SECRET_KEY');
+$reCAPTCHA = new reCAPTCHA($smtp['recaptchapublic'], $smtp['recaptchaprivate']);
         
         
 //ERROR IF STATEMENTS FOR ALL INPUTS
@@ -55,23 +63,25 @@ $reCAPTCHA = new reCAPTCHA('PUBLIC_KEY', 'SECRET_KEY');
         $data['message'] = 'There was an error with your submission. Please review and try again.';
     } else {
 
-        require_once('mail/PHPMailerAutoload.php');
+        // require_once('mail/PHPMailerAutoload.php');
 
         $mail = new PHPMailer;
 
         $mail->IsSMTP();
         $mail->SMTPDebug = 0;
-        $mail->Host = "ACCOUNT_HOST";
+        $mail->Host = $smtp['host'];
         $mail->SMTPAuth = true;
-        $mail->Username = "ACCOUNT_USERNAME";
-        $mail->Password = "ACCOUNT_PASSWORD";
+        $mail->Username = $smtp['username'];
+        $mail->Password = $smtp['password'];
         // $mail->SMTPSecure = 'tls';
-        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPSecure = $smtp['secure'];
+        // $mail->SMTPSecure = 'false';
         // $mail->Port = 587;
-        $mail->Port = 465;
-        $mail->From = "FROM_ADDRESS";
+        $mail->Port = $smtp['port'];
+        // $mail->Port = 80;
+        $mail->From = $smtp['from'];
         $mail->FromName = "ContactForm";
-        $mail->AddAddress('ADDRESS_TO_SEND_TO');
+        $mail->AddAddress($smtp['recipient']);
         $mail->AddReplyTo($_POST['email']);
         $mail->isHTML(true);
         $mail->Subject = "New website message from: " . $_POST['firstname'] . " " . $_POST['lastname'];
@@ -79,7 +89,7 @@ $reCAPTCHA = new reCAPTCHA('PUBLIC_KEY', 'SECRET_KEY');
 
         if (!$mail->Send()) {
             $data['success'] = false;
-            $data['message'] = 'There was a problem sending your form. please contact mdbatruch@gmail.com directly for further correspondence.';
+            $data['message'] = 'There was a problem sending your form. please contact ' . $smtp['recipient'] . ' directly for further correspondence.';
         } else {
             $data['success'] = true;
             $data['message'] = "Success! Your Message has been sent. I will be in touch shortly.";

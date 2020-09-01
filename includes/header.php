@@ -1,10 +1,6 @@
 <?php 
 
-    // require('initialize.php');
-    require('includes/config.php');
-    require('functions.php');
-    require('site-db/connect.php');
-    require('site-db/query_functions.php');
+    require('initialize.php');
 
     $db = db_connect();
     $errors = [];
@@ -25,19 +21,8 @@
         <link rel="stylesheet" href="<?php echo root_url('css/bootstrap.css'); ?>" />
         
         <!--        FAVICON             -->
-        <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+        <link rel="icon" href="http://mike-batruch.ca/favicon/favicon-32x32.png">
+
         <link rel="manifest" href="favicon/manifest.json">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
@@ -69,7 +54,7 @@
 	    <script src="js/html5shiv.min.js"></script>
         <![endif]-->
     </head>
-<body>
+<body class="<?php echo substr(basename($_SERVER['SCRIPT_FILENAME']), 0, -4); ?>">
 <?php $projects = find_all_projects(); ?>
    <div id="top"></div>
         <header id="site-header">
@@ -90,7 +75,6 @@
                         </li>
                         <li>
                             <a href="<?php echo root_url('contact.php'); ?>">Contact</a>
-                            <!-- <a href="<php root_url('con.php'); ?>">Contact</a> -->
                         </li>
                     </ul>
                </nav>

@@ -1,6 +1,11 @@
-@import 'variables.scss';
-@import 'fonts.scss';
-@import 'reset.scss';
-@import 'layout.scss';
-@import 'mediaqueries.scss';
-@import 'keyframes.scss';
+@import 'variables';
+@import 'fonts';
+@import 'mixins';
+@import 'extends';
+@import 'reset';
+@import 'layout';
+@import 'mediaqueries';
+@import 'keyframes';
+@import 'admin';
+@import 'form';
+@import 'login';
