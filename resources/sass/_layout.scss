@@ -169,9 +169,8 @@ main {
 }
 
 #contact-wrapper {
-    
     margin: 0 auto;
-    width: 50%;
+    // width: 50%;
 }
 
 #content-heading { 
@@ -251,10 +250,9 @@ main {
     }
 
     h4 {
-    
         padding: 20px;
         font-weight: 600;
-        height: 95px;
+        margin-bottom: 0px;
     }
     
 }
@@ -279,14 +277,12 @@ main {
         line-height: 1;
         font-weight: 100;
         padding: 0px 20px;
-        width: 70%;
     }
     p {
         font-size: 1.2rem;
         padding-bottom: 10px;
         font-weight: 100;
         padding: 0px 20px;
-        width: 70%;
         line-height: 1.4;
     }
 }

@@ -143,6 +143,10 @@ body {
                 }
                 h1 {
                     line-height: 1.5;
+                    font-size: 1.75rem;
+                    @media(min-width: 600px) {
+                        font-size: 2rem;
+                    }
                 }
             }
             .navbar-expand-md {
@@ -161,6 +165,10 @@ body {
                 color: #fff;
                 font-weight: 300;
                 letter-spacing: 0.5px;
+                font-size: 1.75rem;
+                @media(min-width: 600px) {
+                    font-size: 2rem;
+                }
                 @media(min-width: 1030px) {
                     display: inline-block;
                 }
@@ -397,8 +405,11 @@ body {
             
             .toggle {
                 position: absolute;
-                top: 75px;
+                top: -35px;
                 right: 30px;
+                @media(min-width: 450px) {
+                    top: 75px;
+                }
                 @media(min-width: 991px) {
                     top: 10px;
                 }
@@ -471,11 +482,14 @@ body {
                         background-color: $svgGreen;
                         font-size: 1rem;
                         width: auto;
-                        padding: 12px 50px;
+                        padding: 12px 20px;
                         position: relative;
                         top: 10px;
                         border-radius: 3px;
                         float: right;
+                        @media(min-width: 768px) {
+                            padding: 12px 50px;
+                        }
                     }
                 }
             }
@@ -577,8 +591,10 @@ body {
                         }
                     }
                     #operations {
-                        display: flex;
-                        justify-content: space-between;
+                        @media(min-width: 475px) {
+                            display: flex;
+                            justify-content: space-between;
+                        }
                         dl {
                             position: relative;
                             top: 10px;
@@ -610,11 +626,14 @@ body {
                     letter-spacing: 0.5px;
                 }
                 .last-login {
-                    display: inline;
+                    display: block;
                     color: #a7a9ac;
-                    margin-left: 20px;
                     position: relative;
                     bottom: 5px;
+                    @media(min-width: 1030px) {
+                        display: inline;
+                        margin-left: 20px;
+                    }
                 }
             }
             .dashboard-main-inner {
@@ -656,14 +675,18 @@ body {
     border-top: 3px solid #fff;
     .showing-pages {
         color: #fff;
-        float: left;
         line-height: 2.5;
+        @media(min-width: 450px) {
+            float: left;
+        }
         .number {
             font-weight: 700;
         }
     }
     .pagination {
-        float: right;
+        @media(min-width: 450px) {
+            float: right;
+        }
         .page-item {
             a {
                 background: transparent;
@@ -697,10 +720,13 @@ body {
         background-color: #393e46;
         margin: 5% auto 15% auto;
         border: 0px;
-        width: 50%;
+        width: 80%;
         color: #fff;
         float: none;
         border-radius: 0px;
+        @media(min-width: 768px) {
+            width: 50%;
+        }
         .container {
             padding: 40px 20px;
             text-align: center;
@@ -718,6 +744,10 @@ body {
                 cursor: pointer;
                 &.cancelbtn {
                     background-color: $adminCancelGrey;
+                    margin-bottom: 20px;
+                    @media(min-width: 768px) {
+                        margin-bottom: 0px;
+                    }
                   }
                 &.confirm-delete-project {
                     background-color: $adminRed;
