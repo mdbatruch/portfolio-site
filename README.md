@@ -21,21 +21,36 @@ These are the files for my Portfolio Site.
 To install site, clone the files and keep site and SMTP credentials in seperate .ini files outside of Site Root in the following format, replacing the placeholder values with your server settings:
 
 db.ini
+
 server=SERVER_NAME
+
 username=USERNAME
+
 password=PASSWORD
+
 db=DATABASE_NAME
 
+
 smtp.ini
+
 username=USERNAME
+
 password=PASSWORD
+
 host=SMTP_HOST
+
 port=PORT
+
 secure=PROTOCOL
+
 from=FROM_EMAIL
+
 recipient=EMAIL_RECIPIENT
+
 recaptchaprivate=CAPTCHA_PRIVATE_KEY
+
 recaptchapublic=CAPTCHA_PUBLIC_KEY
+
 
 You will need to register a Captcha Account with Google for the Contact Form to work.
 
