@@ -8,8 +8,8 @@
   }
 
 
-    require('../db/query_functions.php');
-    require('../db/connect.php');
+    require('../database/query_functions.php');
+    require('../database/connect.php');
 
     $db = db_connect();
 
@@ -99,15 +99,17 @@
     $project['project_link'] = $_POST['project_link'] ?? '';
     $project['project_image'] = $_POST['project_image'] ?? '';
     $project['project_active'] = $_POST['project_active'] ?? '';
+    $project['project_path'] = $_POST['project_path'] ?? '';
     $project['image_alt'] = $_POST['image_alt'] ?? '';
+    
 
-    $stmt = $db->prepare("SELECT * from projects WHERE name = ?");
+    $stmt = $db->prepare("SELECT name, description, active, image_url, alt, link from projects WHERE name = ?");
     $stmt->bind_param("s", $project['project_name']);
     $stmt->execute();
     if($stmt->affected_rows === 0) exit('No rows found');
 
     // get query results
-    $stmt->bind_result($project['project_name']);
+    $stmt->bind_result($name, $description, $active, $image_url, $alt, $link);
     $stmt->store_result();
 
     // fetch the query results in a row
@@ -127,14 +129,14 @@
     //     $errors['project_name'] = "This project name already exists, please choose another one";
     // }
 
-    if ($_FILES['file']) {
+    if (isset($_FILES['file'])) {
       if ( $_FILES['file']['error'] > 0 ){
         echo 'Error: ' . $_FILES['file']['error'] . '<br>';
           } else {
-              $file_move = $_SERVER['DOCUMENT_ROOT'] . dirname(dirname($_SERVER['PHP_SELF'])) . '/images/';
-              if(move_uploaded_file($_FILES['file']['tmp_name'], $file_move . $_FILES['file']['name']))
+              $test = $_SERVER['DOCUMENT_ROOT'] . dirname(dirname($_SERVER['PHP_SELF'])) . '/images/';
+              if(move_uploaded_file($_FILES['file']['tmp_name'], $test . $_FILES['file']['name']))
               {
-                  echo "File Uploaded Successfully";
+                  // echo "File Uploaded Successfully";
               }
           }
       }
@@ -149,23 +151,10 @@
         $data['errors'] = $errors;
     } else {
 
-      if ($project['project_image']) {
-
-        $project['project_image'] = substr($project['project_image'], 12);
-        
-        $new_image_path = 'images/' . $project['project_image'];
-
         $stmt = $db->prepare("UPDATE projects SET name = ?,  description = ?, active = ?, link = ?, image_url = ?, alt = ? WHERE id = ?");
         $stmt->bind_param("ssisssi", $project['project_name'], $project['project_description'], $project['project_active'], $project['project_link'], $new_image_path, $project['image_alt'], $project['id']);
         $stmt->execute();
         $stmt->close();
-
-      } else {
-        $stmt = $db->prepare("UPDATE projects SET name = ?,  description = ?, active = ?, link = ?, alt = ? WHERE id = ?");
-        $stmt->bind_param("ssissi", $project['project_name'], $project['project_description'], $project['project_active'], $project['project_link'], $project['image_alt'], $project['id']);
-        $stmt->execute();
-        $stmt->close();
-      }
         
         $sql_project_pull = find_project_by_id($project['id']);
 
@@ -183,13 +172,16 @@ case 'new-project':
       $errors['project_name'] = "Project name can't be blank";
   }
 
-  $stmt = $db->prepare("SELECT * from projects WHERE name = ?");
+  $stmt = $db->prepare("SELECT name, description, active, image_url, alt, link from projects WHERE name = ?");
   $stmt->bind_param("s", $_POST['project_name']);
   $stmt->execute();
   if($stmt->affected_rows === 0) exit('No rows found');
 
+  // $_POST['project_image'] = substr($_POST['project_image'], 12);
+  // $new_image_path = 'images/' . $_POST['project_image'];
+
   // get query results
-  $stmt->bind_result($_POST['project_name']);
+  $stmt->bind_result($name, $description, $active, $image_url, $alt, $link);
   $stmt->store_result();
 
   // fetch the query results in a row
@@ -217,14 +209,14 @@ case 'new-project':
         mkdir("../images" , 0777, true);
       }
 
-      if ($_POST['file']) {
+      if (isset($_FILES['file'])) {
           if ( $_FILES['file']['error'] > 0 ){
             echo 'Error: ' . $_FILES['file']['error'] . '<br>';
         } else {
-              $file_move = $_SERVER['DOCUMENT_ROOT'] . dirname(dirname($_SERVER['PHP_SELF'])) . '/images/';
-              if(move_uploaded_file($_FILES['file']['tmp_name'], $file_move . $_FILES['file']['name']))
+            $test = $_SERVER['DOCUMENT_ROOT'] . dirname(dirname($_SERVER['PHP_SELF'])) . '/images/';
+            if(move_uploaded_file($_FILES['file']['tmp_name'], $test . $_FILES['file']['name']))
             {
-                echo "File Uploaded Successfully";
+                // echo "File Uploaded Successfully";
             }
         }
     }
@@ -284,13 +276,13 @@ case 'new-project':
         
     $page_name = $_POST['id'];
 
-    $stmt = $db->prepare("SELECT * from pages WHERE page = ?");
+    $stmt = $db->prepare("SELECT page, title, subtitle, description from pages WHERE page = ?");
     $stmt->bind_param("s", $page_name);
     $stmt->execute();
     if($stmt->affected_rows === 0) exit('No rows found');
 
     // get query results
-    $stmt->bind_result($page_name);
+    $stmt->bind_result($page_name, $title, $subtitle, $description);
     $stmt->store_result();
 
     // fetch the query results in a row

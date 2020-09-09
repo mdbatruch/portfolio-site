@@ -205,6 +205,7 @@ $(".page").on("submit", function(e){
             form_data.append('project_description', project_description);
             form_data.append('project_link', project_link);
             form_data.append('project_image', project_image);
+            form_data.append('project_path', project_path);
             form_data.append('image_alt', image_alt);
             form_data.append('project_active', project_active);
             form_data.append('file', file_data);

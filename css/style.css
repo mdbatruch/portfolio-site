@@ -414,7 +414,6 @@ main {
 
 #contact-wrapper {
   margin: 0 auto;
-  width: 50%;
 }
 
 #content-heading {
@@ -491,7 +490,7 @@ main {
 .sample-projects h4 {
   padding: 20px;
   font-weight: 600;
-  height: 95px;
+  margin-bottom: 0px;
 }
 
 .sample-projects:hover {
@@ -515,7 +514,6 @@ main {
   line-height: 1;
   font-weight: 100;
   padding: 0px 20px;
-  width: 70%;
 }
 
 #contact-desc p {
@@ -523,7 +521,6 @@ main {
   padding-bottom: 10px;
   font-weight: 100;
   padding: 0px 20px;
-  width: 70%;
   line-height: 1.4;
 }
 
@@ -683,23 +680,7 @@ button.close-btn {
   }
 }
 
-@media screen and (max-width: 1375px) {
-  #contact-wrapper {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 1055px) {
-  .sample-projects h4 {
-    font-size: 0.8rem;
-  }
-}
-
 @media screen and (max-width: 875px) {
-  .sample-projects h4 {
-    font-size: 0.6rem;
-  }
-
   .sample-projects h3 {
     font-size: 120%;
   }
@@ -903,10 +884,6 @@ button.close-btn {
   .sample-projects {
     width: 45%;
     margin: 2.5%;
-  }
-
-  .sample-projects h4 {
-    font-size: 0.8rem;
   }
 }
 
@@ -1164,6 +1141,13 @@ body.admin #content .sample-projects input[type="submit"] {
 
 .admin #content #main-menu.contact h1 {
   line-height: 1.5;
+  font-size: 1.75rem;
+}
+
+@media (min-width: 600px) {
+  .admin #content #main-menu.contact h1 {
+    font-size: 2rem;
+  }
 }
 
 .admin #content #main-menu .navbar-expand-md {
@@ -1190,6 +1174,13 @@ body.admin #content .sample-projects input[type="submit"] {
   color: #fff;
   font-weight: 300;
   letter-spacing: 0.5px;
+  font-size: 1.75rem;
+}
+
+@media (min-width: 600px) {
+  .admin #content #main-menu h1 {
+    font-size: 2rem;
+  }
 }
 
 @media (min-width: 1030px) {
@@ -1476,8 +1467,14 @@ body.admin #content .sample-projects input[type="submit"] {
 
 .admin #content #main-menu .toggle {
   position: absolute;
-  top: 75px;
+  top: -35px;
   right: 30px;
+}
+
+@media (min-width: 450px) {
+  .admin #content #main-menu .toggle {
+    top: 75px;
+  }
 }
 
 @media (min-width: 991px) {
@@ -1558,11 +1555,17 @@ body.admin #content .sample-projects input[type="submit"] {
   background-color: #2bb673;
   font-size: 1rem;
   width: auto;
-  padding: 12px 50px;
+  padding: 12px 20px;
   position: relative;
   top: 10px;
   border-radius: 3px;
   float: right;
+}
+
+@media (min-width: 768px) {
+  .admin #content #main-menu .contact-page-container form input[type="submit"] {
+    padding: 12px 50px;
+  }
 }
 
 .admin #content #main-menu .new-project form,
@@ -1691,10 +1694,12 @@ body.admin #content .sample-projects input[type="submit"] {
   border-radius: 50%;
 }
 
-.admin #content #main-menu .new-project form #operations,
-.admin #content #main-menu .edit-project form #operations {
-  display: flex;
-  justify-content: space-between;
+@media (min-width: 475px) {
+  .admin #content #main-menu .new-project form #operations,
+  .admin #content #main-menu .edit-project form #operations {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .admin #content #main-menu .new-project form #operations dl,
@@ -1732,11 +1737,17 @@ body.admin #content .sample-projects input[type="submit"] {
 }
 
 .admin #content .dashboard-main .dashboard-main-header .last-login {
-  display: inline;
+  display: block;
   color: #a7a9ac;
-  margin-left: 20px;
   position: relative;
   bottom: 5px;
+}
+
+@media (min-width: 1030px) {
+  .admin #content .dashboard-main .dashboard-main-header .last-login {
+    display: inline;
+    margin-left: 20px;
+  }
 }
 
 .admin #content .dashboard-main .dashboard-main-inner a {
@@ -1778,16 +1789,23 @@ body.admin #content .sample-projects input[type="submit"] {
 
 .pagination-container .showing-pages {
   color: #fff;
-  float: left;
   line-height: 2.5;
+}
+
+@media (min-width: 450px) {
+  .pagination-container .showing-pages {
+    float: left;
+  }
 }
 
 .pagination-container .showing-pages .number {
   font-weight: 700;
 }
 
-.pagination-container .pagination {
-  float: right;
+@media (min-width: 450px) {
+  .pagination-container .pagination {
+    float: right;
+  }
 }
 
 .pagination-container .pagination .page-item a {
@@ -1822,10 +1840,16 @@ body.admin #content .sample-projects input[type="submit"] {
   background-color: #393e46;
   margin: 5% auto 15% auto;
   border: 0px;
-  width: 50%;
+  width: 80%;
   color: #fff;
   float: none;
   border-radius: 0px;
+}
+
+@media (min-width: 768px) {
+  .modal .modal-content {
+    width: 50%;
+  }
 }
 
 .modal .modal-content .container {
@@ -1850,6 +1874,13 @@ body.admin #content .sample-projects input[type="submit"] {
 
 .modal .modal-content .container button.cancelbtn {
   background-color: #626366;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .modal .modal-content .container button.cancelbtn {
+    margin-bottom: 0px;
+  }
 }
 
 .modal .modal-content .container button.confirm-delete-project {
