@@ -8,8 +8,8 @@
   }
 
 
-    require('../database/query_functions.php');
-    require('../database/connect.php');
+    require('../db/query_functions.php');
+    require('../db/connect.php');
 
     $db = db_connect();
 
@@ -57,7 +57,6 @@
       }
     }
 
-    // $stmt->close();
   
     if (!empty($errors)) {
   
@@ -76,14 +75,6 @@
       $_SESSION['username'] = $username;
       $_SESSION['last_login'] = time();
       $login_time = date('D-M-d-Y g:i A', $_SESSION['last_login']);
-
-
-    //   $sql = "INSERT INTO login_track ";
-    //   $sql .= "(username, date) VALUES (";
-    //   $sql .= "'" . db_escape($db, $username) . "',";
-    //   $sql .= "'" . db_escape($db, $login_time) . "')";
-    //   $result = mysqli_query($db, $sql);
-    //   confirm_result_set($result);
   
     }
   
@@ -101,7 +92,6 @@
     $project['project_active'] = $_POST['project_active'] ?? '';
     $project['project_path'] = $_POST['project_path'] ?? '';
     $project['image_alt'] = $_POST['image_alt'] ?? '';
-    
 
     $stmt = $db->prepare("SELECT name, description, active, image_url, alt, link from projects WHERE name = ?");
     $stmt->bind_param("s", $project['project_name']);
@@ -115,31 +105,30 @@
     // fetch the query results in a row
     $stmt->fetch();
 
-    //  if ($project['project_image']) {
-
-    //     $project['project_image'] = substr($project['project_image'], 12);
-        
-    //     $new_image_path = 'images/' . $project['project_image'];
-    //  }
-
-    // print $stmt->affected_rows;
-
     //remove for now
     // if ($stmt->affected_rows > 0){
     //     $errors['project_name'] = "This project name already exists, please choose another one";
     // }
 
+    if (!file_exists("../images")) {
+      mkdir("../images" , 0777, true);
+    }
+
     if (isset($_FILES['file'])) {
-      if ( $_FILES['file']['error'] > 0 ){
-        echo 'Error: ' . $_FILES['file']['error'] . '<br>';
-          } else {
-              $test = $_SERVER['DOCUMENT_ROOT'] . dirname(dirname($_SERVER['PHP_SELF'])) . '/images/';
-              if(move_uploaded_file($_FILES['file']['tmp_name'], $test . $_FILES['file']['name']))
-              {
-                  // echo "File Uploaded Successfully";
-              }
+        if ( $_FILES['file']['error'] > 0 ){
+          echo 'Error: ' . $_FILES['file']['error'] . '<br>';
+      } else {
+          $test = $_SERVER['DOCUMENT_ROOT'] . dirname(dirname($_SERVER['PHP_SELF'])) . '/images/';
+          if(move_uploaded_file($_FILES['file']['tmp_name'], $test . $_FILES['file']['name']))
+          {
+              // echo "File Uploaded Successfully";
           }
       }
+  }
+
+      $_POST['project_image'] = substr($_POST['project_image'], 12);
+      
+      $new_image_path = 'images/' . $_POST['project_image'];
 
     if (empty($_POST['project_name'])) {
         $errors['project_name'] = "Name can't be blank";
@@ -176,9 +165,6 @@ case 'new-project':
   $stmt->bind_param("s", $_POST['project_name']);
   $stmt->execute();
   if($stmt->affected_rows === 0) exit('No rows found');
-
-  // $_POST['project_image'] = substr($_POST['project_image'], 12);
-  // $new_image_path = 'images/' . $_POST['project_image'];
 
   // get query results
   $stmt->bind_result($name, $description, $active, $image_url, $alt, $link);
