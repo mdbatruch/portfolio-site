@@ -4,7 +4,7 @@
         global $db;
 
         $sql = "SELECT * from projects ";
-        $sql .= "ORDER BY id ASC";
+        $sql .= "ORDER BY id DESC";
 
         $query = mysqli_query($db, $sql);
         query_works($query);
